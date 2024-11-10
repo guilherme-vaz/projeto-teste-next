@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ProductProvider } from "./context/ProductContext";
 import localFont from "next/font/local";
 import "./globals.css";
 
@@ -24,11 +25,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="pt-br">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+        <ProductProvider>
+          {children}
+        </ProductProvider>
       </body>
     </html>
   );
